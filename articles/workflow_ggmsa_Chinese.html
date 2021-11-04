@@ -103,9 +103,9 @@
 <div id="ggmsa的应用场景" class="section level2">
 <h2 class="hasAnchor">
 <a href="#ggmsa%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF" class="anchor"></a>ggmsa的应用场景</h2>
-<div id="保守和变异位点的可视化位点水平" class="section level3">
+<div id="msa保守和变异位点的可视化" class="section level3">
 <h3 class="hasAnchor">
-<a href="#%E4%BF%9D%E5%AE%88%E5%92%8C%E5%8F%98%E5%BC%82%E4%BD%8D%E7%82%B9%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BD%8D%E7%82%B9%E6%B0%B4%E5%B9%B3" class="anchor"></a>保守和变异位点的可视化（位点水平）</h3>
+<a href="#msa%E4%BF%9D%E5%AE%88%E5%92%8C%E5%8F%98%E5%BC%82%E4%BD%8D%E7%82%B9%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96" class="anchor"></a>MSA保守和变异位点的可视化</h3>
 <p>1.MSA中的保守区域:</p>
 <ul>
 <li>Sequence Bundles</li>
@@ -114,7 +114,7 @@
 </ul>
 <p>2.序列中的特殊变异区域</p>
 <ul>
-<li>Sequence recombination</li>
+<li>Sequence Recombination</li>
 </ul>
 <!-- 例如：最常用的堆叠模式方法也不能适用于所有情况： --><!-- ```{r, fig.height = 3, fig.width = 11, message=FALSE, warning=FALSE, dpi=300, echo=FALSE} --><!-- protein_sequences <- system.file("extdata", "sample.fasta", package = "ggmsa") --><!-- ggmsa(protein_sequences,  --><!--       start = 221,  --><!--       end = 280,  --><!--       char_width = 0.5, --><!--       seq_name = TRUE, --><!--       border = NA) --><!-- ``` --><!-- 堆叠图形在展示局部MSA时有很大优势，它以精确到单核苷酸/氨基酸水平的分辨率展示比对， --><!-- 并通过染色让用户能快速识别MSA的变化趋势。 --><!-- ```{r,  fig.height = 6, fig.width = 10, message=FALSE, warning=FALSE, dpi=300, echo=FALSE} --><!-- ggmsa("data/PlantMITERepeatMask.fa",  --><!--       font = NULL,  --><!--       start = 200, --><!--       end = 300, --><!--       seq_name = F, --><!--       border = NA, --><!--       color = "Chemistry_NT") +  --><!--     coord_cartesian() --><!-- ``` --><!-- 但是当比对序列比较大并且比较复杂时，图形会包含密集的字符和令人眼花缭乱的配色。 --><!-- 会让人产生视觉上的混乱感。 -->
 </div>
@@ -343,12 +343,12 @@ Sequence bundles可视化方法在2013年BioVis设计竞赛中被引入，以探
 <details><summary>
 plot
 </summary><p><img src="images/seq_bundle.png" width="30%" style="display: block; margin: auto;"></p>
-</details><p>ggmsa中用<code>ggSeqBundle</code>函数来把MSA可视化为Sequence bundles.最简单的方法是 <code>ggSeqBundle(msa-data)</code>。</p>
-下列数据包括革兰氏阳性菌和革兰氏阴性菌的腺苷酸激酶盖(Adenylate Kinase Lid, AKL) 结构域。每组各100条序列。
+</details><p>ggmsa中用<code>ggSeqBundle</code>函数来把MSA可视化为Sequence bundles.最简单的方法是 <code>ggSeqBundle(msa_data)</code>。</p>
+<p>下列数据包括革兰氏阳性菌和革兰氏阴性菌的腺苷酸激酶盖(Adenylate Kinase Lid, AKL) 结构域。每组各100条序列。 阳性菌在形成半胱氨酸(Cystine)四联体；阴性菌形成氢键网络， (His4, Ser7, Arg9, Asp24, Thr27, Glu29)</p>
 <details><summary>
 plot
 </summary><p><img src="workflow_ggmsa_Chinese_files/figure-html/unnamed-chunk-9-1.png" width="1056"></p>
-</details>
+</details><p>(Date from BioVis2013 and repeated example from <a href="https://www.science-practice.com/projects/sequence-bundles/gallery/">Science Practice</a>)</p>
 </div>
 <div id="sequence-logo" class="section level3">
 <h3 class="hasAnchor">
@@ -364,7 +364,7 @@ plot
 <details><summary>
 plot
 </summary><p><img src="workflow_ggmsa_Chinese_files/figure-html/unnamed-chunk-11-1.png" width="1056"></p>
-</details><p>也可以用<code>seqlogo</code>函数进行单独的渲染。使用方法与<code>ggmsa</code>相似，可是通过参数控制位置， 配色和字体。</p>
+</details><p>也可以用<code>seqlogo</code>函数进行单独的渲染。使用方法与<code>ggmsa</code>相似，可是通过参数控制位置， 配色和字体。<code>patchwork</code>包可以把sequqnce logos 和 sequence bundles组合起来。</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"> <span class="fu">seqlogo</span><span class="op">(</span><span class="va">protein_sequences</span>, <span class="fl">221</span>, <span class="fl">280</span><span class="op">)</span></code></pre></div>
 <details><summary>
